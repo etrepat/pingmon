@@ -1,0 +1,15 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.dirname(__FILE__) + "/../lib"
+require 'pingmon'
+
+def usage(why = nil)
+	puts "failed because: #{why}" if why
+	puts "usage:\tpingmon [config.yml]"
+end
+
+usage("wrong number of args") if ARGV.size != 0 && ARGV.size != 1
+
+@config_file = ARGV.first || 'config.yml'
+PingMon.execute_from_config(@config_file)
+

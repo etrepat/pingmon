@@ -1,0 +1,26 @@
+# pingmon config options
+config:
+  # host to be monitored
+  host: 192.168.0.7
+  # mode (ping/monitor)
+  mode: monitor
+  # monitor host every 2 minutes (if set to monitor mode)
+  monitor_interval: 2m
+  # wether it should send 'down' notifications by email
+  notify_when_down: true
+  # whom to notify
+  notify_to: estanis.trepat@inson.es
+  # can be more than one (comma separated)
+  from_address: estanis.trepat@inson.es
+  # :sendmail or :smtp (options below). :sendmail would only work on unix/linux
+  transport: :sendmail
+  # smtp_options ( if transport is set to :smtp. Passed "as is" to Pony.mail method )
+  smtp_options:
+    address: your.smtpserver.com
+    port: 25
+    enable_starttls_auto: false
+    user_name: auser
+    password: apassword
+    authentication: :plain
+    domain: smtpserver.com
+
