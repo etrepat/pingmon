@@ -31,7 +31,7 @@ Gem::Specification.new do |s|
 ===========================================================================
 Welcome to PingMon!
 
-You may need to run \`pingmon install\` now if this is your first time
+You may need to run \`pingmon build-config\` now if this is your first time
 using pingmon. If not... well... you should just do... nothing ;).
 
 Cheers!
