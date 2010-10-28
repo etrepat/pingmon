@@ -26,5 +26,14 @@ Gem::Specification.new do |s|
   s.executables         = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
   s.require_path        = 'lib'
   s.default_executable  = %q{pingmon}
+
+  s.post_install_message = %[
+===========================================================================
+Welcome to PingMon!
+
+You may need to run \`pinmon build-config\` now if this is your first time
+using pingmon. If not... don't tell anyone ;).
+===========================================================================
+  ]
 end
 
