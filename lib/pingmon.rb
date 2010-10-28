@@ -1,14 +1,15 @@
-require 'rubygems'
 require 'ping'
-require 'pony'
 require 'erb'
 require 'yaml'
+require 'rubygems'
+require 'pony'
 require 'eventmachine'
 require 'rufus/scheduler'
 
 require File.dirname(__FILE__) + '/pingmon/config.rb'
 require File.dirname(__FILE__) + '/pingmon/pinger.rb'
 require File.dirname(__FILE__) + '/pingmon/monitor.rb'
+require File.dirname(__FILE__) + '/pingmon/version.rb'
 
 module PingMon
   def self.ping(config=PingMon::Config.new)
