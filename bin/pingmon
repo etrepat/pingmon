@@ -5,11 +5,24 @@ require 'pingmon'
 
 def usage(why = nil)
 	puts "failed because: #{why}" if why
-	puts "usage:\tpingmon [config.yml]"
+	puts "usage:\tpingmon [build-config] [/path/to/pingmon.yml]"
 end
 
 usage("wrong number of args") if ARGV.size != 0 && ARGV.size != 1
 
-@config_file = ARGV.first || 'config.yml'
-PingMon.execute_from_config(@config_file)
+if ARGV.size == 1 && ARGV.first.strip == 'build-config'
+  PingMon::Config.build_config
+  ARGV.shift
+end
+
+begin
+  PingMon.execute_from_config(ARGV.first || PingMon::DEFAULT_CONFIG_FILE)
+rescue PingMon::ConfigFileNotFound => e
+  puts "WTF! #{e.message}"
+  puts "If this is your first time using pingmon you should run \`pingmon build-config\`." if ARGV.size == 0
+rescue StandardError => e
+  puts "WTF! #{e.message}"
+rescue SystemExit, Interrupt
+  puts "See ya!"
+end
 

@@ -12,6 +12,8 @@ require File.dirname(__FILE__) + '/pingmon/monitor.rb'
 require File.dirname(__FILE__) + '/pingmon/version.rb'
 
 module PingMon
+  DEFAULT_CONFIG_FILE = File.expand_path('~/.pingmon.yml')
+
   def self.ping(config=PingMon::Config.new)
     p = PingMon::Pinger.new(config)
     p.ping
@@ -22,7 +24,7 @@ module PingMon
     m.monitor
   end
 
-  def self.execute_from_config(config_file='config.yml')
+  def self.execute_from_config(config_file=PingMon::DEFAULT_CONFIG_FILE)
     config = PingMon::Config.new(config_file).load
     raise "wrong mode" unless %w(ping monitor).include?(config.mode)
 

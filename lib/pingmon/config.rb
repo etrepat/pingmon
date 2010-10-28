@@ -1,6 +1,11 @@
+require 'ftools'
+
 module PingMon
+  class ConfigFileNotFound < StandardError
+  end
+
   class Config
-    def initialize(config_file='config.yml')
+    def initialize(config_file=PingMon::DEFAULT_CONFIG_FILE)
       @config_file = config_file
       @loaded = false
     end
@@ -8,7 +13,7 @@ module PingMon
     attr_accessor :config_file
 
     def load
-      raise "Configuration file '#{config_file}' could not be found!" unless File.exists?(config_file)
+      raise ConfigFileNotFound.new("Configuration file '#{config_file}' could not be found!") unless File.exists?(config_file)
 
       # TODO: add logger and remove puts
       puts "Loading configuration from '#{@config_file}'"
@@ -30,6 +35,12 @@ module PingMon
 
     def loaded?
       @loaded
+    end
+
+    def self.build_config(where=PingMon::DEFAULT_CONFIG_FILE)
+      from = File.dirname(__FILE__) + '/../../config/pingmon.yml'
+      File.copy(File.expand_path(from), where)
+      puts "Created configuration file '#{where}'."
     end
   end
 end
