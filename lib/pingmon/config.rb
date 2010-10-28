@@ -15,8 +15,7 @@ module PingMon
     def load
       raise ConfigFileNotFound.new("Configuration file '#{config_file}' could not be found!") unless File.exists?(config_file)
 
-      # TODO: add logger and remove puts
-      puts "Loading configuration from '#{@config_file}'"
+      PingMon.log << "Loading configuration from '#{@config_file}'" if PingMon.log
 
       text = ERB.new(File.read(config_file)).result
       hash = YAML.load(text)
@@ -40,7 +39,7 @@ module PingMon
     def self.build_config(where=PingMon::DEFAULT_CONFIG_FILE)
       from = File.dirname(__FILE__) + '/../../config/pingmon.yml'
       File.copy(File.expand_path(from), where)
-      puts "Created configuration file '#{where}'."
+      PingMon.Log << "Created configuration file '#{where}'." if PingMon.log
     end
   end
 end

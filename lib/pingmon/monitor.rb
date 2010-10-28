@@ -7,7 +7,8 @@ module PingMon
     def monitor
       @config.load unless @config.loaded?
 
-      puts "Monitoring host '#{@config.host}'. Will ping every '#{@config.monitor_interval}'."
+      PingMon.log << "Monitoring host '#{@config.host}'. Will ping every '#{@config.monitor_interval}'." if PingMon.log
+
       EM.run {
         pinger = Pinger.new(@config)
         scheduler = Rufus::Scheduler::EmScheduler.start_new

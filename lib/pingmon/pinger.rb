@@ -11,13 +11,13 @@ module PingMon
     def ping
       @config.load unless @config.loaded?
 
-      puts "[#{Time.now}] - Pinging host '#{@config.host}'."
+      PingMon.log << "[#{Time.now}] - Pinging host '#{@config.host}'." if PingMon.log
       result = PingMon::Pinger.ping(@config.host)
       unless result
-        puts "[#{Time.now}] - '#{@config.host}' appears to be: DOWN. Sending notification."
+        PingMon.log << "[#{Time.now}] - '#{@config.host}' appears to be: DOWN. Sending notification." if PingMon.log
         notify_down_status if @config.notify_when_down
       else
-        puts "[#{Time.now}] - '#{@config.host}' appears to be: UP."
+        PingMon.log << "[#{Time.now}] - '#{@config.host}' appears to be: UP." if PingMon.log
       end
 
       result
