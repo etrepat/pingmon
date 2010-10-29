@@ -9,7 +9,11 @@ Gem::Specification.new do |s|
   s.email               = %q{estanis@etrepat.com}
   s.homepage            = "http://github.com/etrepat/pingmon"
   s.summary             = "A stupid local-networking host 'ping' monitoring tool"
-  s.description         = s.summary
+  s.description         = %[
+A stupid monitoring tool which periodically pings a host and sends an email
+notification when it becomes unavailable. It was created merely for learning
+purposes and became my first gem.
+  ]
   s.date                = %q{2010-07-24}
 
   s.required_rubygems_version = ">= 1.3.6"
