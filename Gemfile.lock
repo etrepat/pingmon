@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pingmon (0.1)
+    pingmon (0.2.1)
       eventmachine (~> 0.12.10)
       pony (~> 1.0.1)
       rufus-scheduler (~> 2.0.6)
