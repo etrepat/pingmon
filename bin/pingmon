@@ -16,8 +16,7 @@ if ARGV.size == 1 && ARGV.first.strip == 'build-config'
 end
 
 begin
-  # TODO: this should added as a parameter...
-  PingMon.log = 'stdout'
+  PingMon.log = ENV['PINGMON_LOG'] || 'stdout'
   PingMon.execute_from_config(ARGV.first || PingMon::DEFAULT_CONFIG_FILE)
 rescue PingMon::ConfigFileNotFound => e
   puts "WTF! #{e.message}"
