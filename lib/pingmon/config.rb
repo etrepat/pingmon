@@ -40,6 +40,8 @@ module PingMon
       from = File.dirname(__FILE__) + '/../../config/pingmon.yml'
       File.copy(File.expand_path(from), where)
       PingMon.Log << "Created configuration file '#{where}'." if PingMon.log
+
+      where
     end
   end
 end
