@@ -3,7 +3,7 @@ require File.expand_path("../lib/pingmon/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name                = %q{pingmon}
-  s.version             = PingMon::VERSION
+  s.version             = PingMon.version
   s.platform            = Gem::Platform::RUBY
   s.authors             = ["Estanislau Trepat"]
   s.email               = %q{estanis@etrepat.com}
