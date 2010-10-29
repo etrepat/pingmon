@@ -15,7 +15,7 @@ notification when it becomes unavailable.
 
 *It's been done merely for learning purposes so don't be too harsh on the code.*
 
-### Installation & Usage
+## Installation & Usage
 
 1. Install the gem as usual by entering:
         $ gem install pingmon
@@ -28,7 +28,7 @@ notification when it becomes unavailable.
 
 4. Finally, type `pingmon` on your prompt and have fun! ;)
 
-#### .pingmon.yml options
+### .pingmon.yml options
 
 There are a number of options you can tweak in the `.pingmon.yml` config file. They
 are pretty self-explanatory but I'll explain some of them here:
@@ -53,7 +53,7 @@ For more help, please take a look at the sample config file `config/pingmon.yml`
 at the one PingMon generates for you when you type `pingmon build-config` which is
 usually located at: `$HOME/.pingmon.yml`.
 
-### External Dependencies
+## External Dependencies
 
 PingMon depends on the following gems:
 
