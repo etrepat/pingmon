@@ -11,19 +11,19 @@ end
 usage("wrong number of args") if ARGV.size != 0 && ARGV.size != 1
 
 if ARGV.size == 1 && ARGV.first.strip == 'build-config'
-  PingMon::Config.build_config
-  ARGV.shift
-end
-
-begin
-  PingMon.log = ENV['PINGMON_LOG'] || 'stdout'
-  PingMon.execute_from_config(ARGV.first || PingMon::DEFAULT_CONFIG_FILE)
-rescue PingMon::ConfigFileNotFound => e
-  puts "WTF! #{e.message}"
-  puts "If this is your first time using pingmon you should run \`pingmon build-config\`." if ARGV.size == 0
-rescue StandardError => e
-  puts "WTF! #{e.message}"
-rescue SystemExit, Interrupt
-  puts "See ya!"
+  f = PingMon::Config.build_config
+  puts "Please, edit #{f} and run 'pingmon' again."
+else
+  begin
+    PingMon.log = ENV['PINGMON_LOG'] || 'stdout'
+    PingMon.execute_from_config(ARGV.first || PingMon::DEFAULT_CONFIG_FILE)
+  rescue PingMon::ConfigFileNotFound => e
+    puts "WTF! #{e.message}"
+    puts "If this is your first time using pingmon you should run \`pingmon build-config\`." if ARGV.size == 0
+  rescue StandardError => e
+    puts "WTF! #{e.message}"
+  rescue SystemExit, Interrupt
+    puts "See ya!"
+  end
 end
 
