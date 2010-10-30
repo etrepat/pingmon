@@ -12,122 +12,81 @@
   <div id="container">
     <h1><a href="http://github.com/etrepat/pingmon">PingMon</a></h1>
 
-    <div class="description">
-      A stupid local-networking host 'ping' monitoring tool
-    </div>
+    <div class="description">A stupid local-networking host 'ping' monitoring tool</div>
 
     <h2>Motivation</h2>
 		<p>One day at work I needed to periodically ping a host on our local network. Then I
 		thought it would be great (well... just nice) that when the pings were unsuccessful
 		I would get notified by email.</p>
-		
+
 		<p>I was learning Ruby at that time and, instead of writing a simple shell script and set a cron job
 		I thought... <em>Maybe I could write a script in Ruby for this</em>, <em>Maybe I could practice
 		writing some tests</em>, <em>I could even create a gem and learn how it's done</em>, etc.</p>
-		
+
 		<p>And this is the result:</p>
-		
-		<p>A <em>stupid</em> monitoring tool which periodically pings a 
-			host and sends an email notification when it becomes unavailable.</p>
-				
-		<p><em>Note: It's been done merely for learning purposes so don't be too harsh on the code</em>.</p>
+
+		<p>A <em>stupid</em> monitoring tool which periodically pings a host and sends an email
+		notification when it becomes unavailable.</p>
 		
 		<h2>Installation & Usage</h2>
 		<ol>
-			<li>
-				<p>Install the gem as usual by typing:</p>
-				<p><pre><code>$ gem install pingmon</code></pre></p>
-			</li>
-			<li>
-				<p>PingMon needs a <em>YAML configuration file</em> to operate, which is usually located
-					at: <code>~/.pingmon.yml</code>. To make PingMon create that file for you, type:</p>
-				<p><pre><code>$ pingmon build-config</code></pre></p>
-			</li>
-			<li>
-				<p>Edit <code>~/.pingmon.yml</code> to suit your needs.</p>
-			</li>
-			<li>
-				<p>Finally, type <code>pingmon</code> on your prompt and have fun! ;)</p>
-			</li>
+		<li><p>Install the gem as usual by entering:</p>
+
+		<pre><code>$ gem install pingmon</code></pre></li>
+		<li><p>PingMon needs a <em>YAML configuration file</em> to operate, which is usually:
+		<code>~/.pingmon.yml</code>. To make PingMon create that file for you, type:</p>
+
+		<pre><code>$ pingmon build-config</code></pre></li>
+		<li><p>Edit <code>~/.pingmon.yml</code> to suit your needs.</p></li>
+		<li><p>Finally, type <code>pingmon</code> on your prompt and have fun! ;)</p></li>
 		</ol>
 
-		3. 
 
-		4. 
+		<h3>.pingmon.yml options</h3>
 
-		### .pingmon.yml options
+		<p>There are a number of options you can tweak in the <code>.pingmon.yml</code> config file. They
+		are pretty self-explanatory but I'll explain some of them here:</p>
 
-		There are a number of options you can tweak in the `.pingmon.yml` config file. They
-		are pretty self-explanatory but I'll explain some of them here:
-
-		- **host:** specifies the host to 'ping' to.
-		- **mode:** PingMon operation mode which should be one of `monitor` or `ping`. In
-		`ping` mode, PingMon will ping the host specified one time only (for testing
-		purposes). When in `monitor` mode, PingMon will ping the host specified periodically
-		following the `monitor_interval` option.
-		- **monitor_interval:** when set to `monitor` mode it specifies the delay between
-		*pings* to check the host status. ex: Setting it to `15m` will ping the `host`
-		*every* 15 minutes.
-		- **notify_when_down:** `true` or `false`. Tells PingMon to send an email notification
-		when host can't be reached.
-		- **notify_to:** whom to notify (if more than one, comma separated). ex: `user@domain.com`
-		- **transport:** `:sendmail` or `:smtp`. `:sendmail` may only work on unix/linux OS
-		variants.
-		- **smtp_options:** when `transport:` is set to `:smtp` you should specify this
-		options. They are passed *as is* to `Pony.mail` method.
-
-		For more help, please take a look at the sample config file `config/pingmon.yml` or
-		at the one PingMon generates for you when you type `pingmon build-config` which is
-		usually located at: `$HOME/.pingmon.yml`.
-        
-    <h2>Usage</h2>
-    <pre><code>new RangePicker(element[, options, locale, template]);</code></pre>
-    <p>For insight on the options available or what attributes may be supported
-    by the locale and template objects, please take a look at the  <a href="http://github.com/etrepat/simple-range-picker/blob/master/README.md" title="README">README</a> 
-    on the <a href="http://github.com/etrepat/simple-range-picker" title="github project page">github project page</a>.</p>
-    
-    <h2>Documentation</h2>
-    <p><a href="http://github.com/etrepat/simple-range-picker/blob/master/README.md">README</a></p>
-    
-    <h2>Example</h2>
-    <p>Please, pick a date range from the component below:</p>
-    <div id="rangepicker"></div>
-    <p>Generated from the code below (check <a href="http://github.com/etrepat/simplerangepicker">source code</a> 
-    for more detail):</p>
-    <pre><code>
-      &lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot;&gt;
-        //&lt;![CDATA[
-          document.observe(&#x27dom:loaded&#x27, function() {
-            new RangePicker(&#x27rangepicker&#x27, {
-                months: 3,
-                currentMonthPosition: &#x27last&#x27
-            });
-          });
-        //]]&gt;
-      &lt;/script&gt;
-    </code></pre>
-
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/etrepat/simple-range-picker/zipball/master">zip</a> or
-      <a href="http://github.com/etrepat/simple-range-picker/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/etrepat/simple-range-picker.git</pre>
-    </p>
-    
-    <h2>Dependencies</h2>
-		<p>This project depends on the following libraries:</p>
 		<ul>
-			<li><a href="http://prototypejs.org" title="Prototype">Prototype</a> 1.6 or higher</li>
-			<li><a href="http://code.google.com/p/datejs/" title="Datejs">Datejs</a> 1.0 Alpha-1 or higher</li>
-			<li><em>(optional)</em> <a href="http://script.aculo.us" title="Script.aculo.us">Script.aculo.us</a> 1.8.0 o higher (If present, some effects are used)</li>
+		<li><strong>host:</strong> specifies the host to 'ping' to.</li>
+		<li><strong>mode:</strong> PingMon operation mode which should be one of <code>monitor</code> or <code>ping</code>. In
+		<code>ping</code> mode, PingMon will ping the host specified one time only (for testing
+		purposes). When in <code>monitor</code> mode, PingMon will ping the host specified periodically
+		following the <code>monitor_interval</code> option.</li>
+		<li><strong>monitor_interval:</strong> when set to <code>monitor</code> mode it specifies the delay between
+		<em>pings</em> to check the host status. ex: Setting it to <code>15m</code> will ping the <code>host</code>
+		<em>every</em> 15 minutes.</li>
+		<li><strong>notify_when_down:</strong> <code>true</code> or <code>false</code>. Tells PingMon to send an email notification
+		when host can't be reached.</li>
+		<li><strong>notify_to:</strong> whom to notify (if more than one, comma separated). ex: <code>user@domain.com</code></li>
+		<li><strong>transport:</strong> <code>:sendmail</code> or <code>:smtp</code>. <code>:sendmail</code> may only work on unix/linux OS
+		variants.</li>
+		<li><strong>smtp_options:</strong> when <code>transport:</code> is set to <code>:smtp</code> you should specify this
+		options. They are passed <em>as is</em> to <code>Pony.mail</code> method.</li>
 		</ul>
-    
-    <h2>Localization</h2>
-    <p>Localization can be accomplished by modifying the strings present in <code>RangePickerOptions.Locale</code> object. Also, as this project relies on the <a href="http://code.google.com/p/datejs/" title="Datejs">Datejs</a> library for date manipulation, dropping a localized <em>culture info file</em> will do the job for date formats, day names, etc.</p>
+
+		<p>For more help, please take a look at the sample config file <code>config/pingmon.yml</code> or
+		at the one PingMon generates for you when you type <code>pingmon build-config</code> which is
+		usually located at: <code>$HOME/.pingmon.yml</code>.</p>
+
+		<h2>External Dependencies</h2>
+
+		<p>PingMon depends on the following gems:</p>
+
+		<ul>
+		<li><a href="http://github.com/eventmachine/eventmachine">eventmachine</a> ~> 0.12.10</li>
+		<li><a href="http://github.com/jmettraux/rufus-scheduler">rufus-scheduler</a> ~> 2.0.6</li>
+		<li><a href="http://github.com/adamwiggins/pony">pony</a> ~> 1.0.1</li>
+		</ul>
+
+
+		<p>Notes:</p>
+
+		<ul>
+		<li><a href="http://github.com/eventmachine/eventmachine">eventmachine</a> and <a href="http://github.com/jmettraux/rufus-scheduler">rufus-scheduler</a> are used when doing "pings" in monitor mode.</li>
+		<li><a href="http://github.com/adamwiggins/pony">Pony</a> adds the mail sending logic.</li>
+		<li>This requirements are specified in the gemspec as well.</li>
+		</ul>
 
 		<h2>Contact</h2>
 		<p>Coded by <a href="http://etrepat.com" title="Estanislau Trepat">Estanislau Trepat</a>. 
@@ -136,28 +95,8 @@
 
     <div class="footer">
       get the source code on GitHub: 
-      <a href="http://github.com/etrepat/simple-range-picker">etrepat/simple-range-picker</a>
+      <a href="http://github.com/etrepat/pingmon">etrepat/pingmon</a>
     </div>
   </div>
-  <script src="../lib/prototype.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../lib/effects.js" type="text/javascript" charset="utf-8"></script>
-  <!--
-  Also, take a look at RangePickerOptions.Locale object. All captions used
-  by the component can be translated there, overriden on a separate file or passed
-  as a parameter to RangePicker constructor.
-  -->
-  <script src="../lib/culture-en-US.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../lib/date.js" type="text/javascript" charset="utf-8"></script>
-  <script src="../src/rangepicker.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript" charset="utf-8">
-    //<![CDATA[
-    document.observe('dom:loaded', function() {
-      new RangePicker('rangepicker', {
-        months: 3,
-        currentMonthPosition: 'last'
-      });
-    });
-    //]]>
-  </script>
 </body>
 </html>
